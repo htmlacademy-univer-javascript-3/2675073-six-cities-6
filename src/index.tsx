@@ -1,13 +1,9 @@
-// src/main.tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// src/index.tsx
+import { createRoot } from 'react-dom/client';
 import App from './components/App';
+import { OFFERS } from './mocks/offers';
 
-const root = document.getElementById('root');
-if (root) {
-  ReactDOM.createRoot(root).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(<App initialOffers={OFFERS} />);
 }

@@ -21,7 +21,7 @@ const App = ({ initialOffers }: AppProps) => (
         path="/favorites"
         element={
           <PrivateRoute>
-            <FavoritesPage offers={initialOffers.filter((offer) => offer.isFavorite)} />
+            <FavoritesPage offers={initialOffers.filter((o) => o.isFavorite)} />
           </PrivateRoute>
         }
       />
