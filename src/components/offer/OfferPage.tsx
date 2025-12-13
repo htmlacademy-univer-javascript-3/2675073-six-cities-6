@@ -1,6 +1,3 @@
-
-import { useParams } from 'react-router-dom';
-
 export default function OfferPage() {
 
   // Примечание: id здесь только для демонстрации;
