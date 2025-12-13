@@ -8,7 +8,9 @@ interface FavoritesPageProps {
 
 export default function FavoritesPage({ offers }: FavoritesPageProps) {
   const groupedOffers = offers.reduce<Record<string, Offer[]>>((acc, offer) => {
-    if (!acc[offer.city]) acc[offer.city] = [];
+    if (!acc[offer.city]) {
+      acc[offer.city] = [];
+    }
     acc[offer.city].push(offer);
     return acc;
   }, {});

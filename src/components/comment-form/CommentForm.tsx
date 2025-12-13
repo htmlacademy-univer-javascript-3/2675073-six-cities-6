@@ -1,6 +1,21 @@
 // src/components/comment-form/CommentForm.tsx
 import { useState } from 'react';
 
+const getRatingTitle = (star: number): string => {
+  switch (star) {
+    case 5:
+      return 'perfect';
+    case 4:
+      return 'good';
+    case 3:
+      return 'not bad';
+    case 2:
+      return 'badly';
+    default:
+      return 'terribly';
+  }
+};
+
 export default function CommentForm() {
   const [rating, setRating] = useState<number | null>(null);
   const [comment, setComment] = useState('');
@@ -27,12 +42,7 @@ export default function CommentForm() {
             <label
               htmlFor={`${star}-stars`}
               className="reviews__rating-label form__rating-label"
-              title={
-                star === 5 ? 'perfect' :
-                star === 4 ? 'good' :
-                star === 3 ? 'not bad' :
-                star === 2 ? 'badly' : 'terribly'
-              }
+              title={getRatingTitle(star)}
             >
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
@@ -48,7 +58,8 @@ export default function CommentForm() {
         placeholder="Tell how was your stay, what you like and what can be improved"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
-      ></textarea>
+      >
+      </textarea>
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set <span className="reviews__star">rating</span> and describe your stay with at least <b className="reviews__text-amount">50 characters</b>.

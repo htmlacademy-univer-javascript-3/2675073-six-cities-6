@@ -19,6 +19,9 @@ export default function OfferPage({ offers }: OfferPageProps) {
     );
   }
 
+  // Выбираем 2 соседних предложения (не текущее)
+  const nearOffers = offers.filter((o) => o.id !== offer.id).slice(0, 2);
+
   return (
     <div className="page">
       <header className="header">
@@ -53,9 +56,9 @@ export default function OfferPage({ offers }: OfferPageProps) {
         <section className="offer">
           <div className="offer__gallery-container container">
             <div className="offer__gallery">
-              {offer.images.map((src, index) => (
-                <div className="offer__image-wrapper" key={index}>
-                  <img className="offer__image" src={src} alt={`Photo ${index + 1}`} />
+              {offer.images.map((src) => (
+                <div key={src} className="offer__image-wrapper">
+                  <img className="offer__image" src={src} alt={`Photo of ${offer.title}`} />
                 </div>
               ))}
             </div>
@@ -102,8 +105,8 @@ export default function OfferPage({ offers }: OfferPageProps) {
               <div className="offer__inside">
                 <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
-                  {offer.features.map((feature, i) => (
-                    <li key={i} className="offer__inside-item">
+                  {offer.features.map((feature) => (
+                    <li key={feature} className="offer__inside-item">
                       {feature}
                     </li>
                   ))}
@@ -158,7 +161,8 @@ export default function OfferPage({ offers }: OfferPageProps) {
                         </div>
                       </div>
                       <p className="reviews__text">
-                        A quiet cozy and picturesque that hides behind a a river...
+                        A quiet cozy and picturesque that hides behind a a river by the unique
+                        lightness of Amsterdam. The building is green and from 18th century.
                       </p>
                       <time className="reviews__time" dateTime="2019-04-24">
                         April 2019
@@ -177,12 +181,8 @@ export default function OfferPage({ offers }: OfferPageProps) {
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
-              {/* Можешь отфильтровать nearby предложения позже */}
-              {[offers[0], offers[1]].map((nearOffer) => (
-                <article
-                  key={nearOffer.id}
-                  className="near-places__card place-card"
-                >
+              {nearOffers.map((nearOffer) => (
+                <article key={nearOffer.id} className="near-places__card place-card">
                   {nearOffer.isPremium && (
                     <div className="place-card__mark">
                       <span>Premium</span>

@@ -97,7 +97,7 @@ export default function MainPage({ offers }: MainPageProps) {
                   </li>
                 </ul>
               </form>
-              <OffersList offers={amsterdamOffers} isMainPage={true} />
+              <OffersList offers={amsterdamOffers} isMainPage />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
