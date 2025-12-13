@@ -1,4 +1,4 @@
-
+// src/components/login/LoginPage.tsx
 export default function LoginPage() {
   return (
     <div className="page page--gray page--login">
@@ -32,7 +32,7 @@ export default function LoginPage() {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  required={true}
+                  required
                 />
               </div>
               <div className="login__input-wrapper form__input-wrapper">
@@ -42,7 +42,7 @@ export default function LoginPage() {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  required={true}
+                  required
                 />
               </div>
               <button className="login__submit form__submit button" type="submit">
