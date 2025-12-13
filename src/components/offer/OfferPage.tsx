@@ -1,9 +1,7 @@
-// src/components/offer/OfferPage.tsx
-import React from 'react';
+
 import { useParams } from 'react-router-dom';
 
 export default function OfferPage() {
-  const { id } = useParams<{ id: string }>();
 
   // Примечание: id здесь только для демонстрации;
   // в реальном проекте данные подгружались бы по id

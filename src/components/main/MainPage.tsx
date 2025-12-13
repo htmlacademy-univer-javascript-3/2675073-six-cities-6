@@ -1,5 +1,4 @@
-// src/components/main/MainPage.tsx
-import React from 'react';
+
 
 interface MainPageProps {
   offersCount: number;

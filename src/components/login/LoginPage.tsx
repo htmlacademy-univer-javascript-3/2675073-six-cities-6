@@ -1,5 +1,3 @@
-// src/components/login/LoginPage.tsx
-import React from 'react';
 
 export default function LoginPage() {
   return (

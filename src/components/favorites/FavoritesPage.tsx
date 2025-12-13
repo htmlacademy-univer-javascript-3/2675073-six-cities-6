@@ -1,5 +1,3 @@
-// src/components/favorites/FavoritesPage.tsx
-import React from 'react';
 
 export default function FavoritesPage() {
   return (
